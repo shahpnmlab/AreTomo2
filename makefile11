@@ -180,11 +180,11 @@ cuda: $(CUCPPS)
 compile: $(OBJS)
 
 exe: $(OBJS)
-	@g++ -g -pthread -m64 $(OBJS) \
+	@$(CC) -g -pthread -m64 $(OBJS) \
 	$(PRJLIB)/libmrcfile.a \
 	$(PRJLIB)/libutil.a \
 	-L$(CUDALIB) -L/usr/lib64 \
-	-lcufft -lcudart -lcuda -lc -lm -lpthread \
+	-lcufft -lcudart -lcuda -lc -lm -lpthread -lstdc++ \
 	-o AreTomo2
 	@echo AreTomo2 has been generated.
 
